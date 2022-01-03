@@ -236,7 +236,10 @@ Ava.test("Map.forEachWithMap(map, fn)", (function (t) {
         return Ava.true_(t, valueChain.contents === "barburger", undefined, undefined);
       }));
 
+var Iterator;
+
 var $$Map$1;
 
+exports.Iterator = Iterator;
 exports.$$Map = $$Map$1;
 /*  Not a pure module */

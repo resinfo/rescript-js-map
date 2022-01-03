@@ -1,3 +1,4 @@
+module Iterator = Js_iterator
 module Map = Js_map
 
 open Ava
@@ -109,75 +110,75 @@ test("Map.keys(map)", t => {
   let map = Map.fromEntries([("a", "a"), ("b", "b")])
 
   let iterator = map->Map.keys
-  let next = iterator->Map.Iterator.next
+  let next = iterator->Iterator.next
 
-  t->false_(next->Map.Iterator.done, ())
-  t->true_(next->Map.Iterator.value == Some("a"), ())
+  t->false_(next->Iterator.done, ())
+  t->true_(next->Iterator.value == Some("a"), ())
 
-  let next = iterator->Map.Iterator.next
+  let next = iterator->Iterator.next
 
-  t->false_(next->Map.Iterator.done, ())
-  t->true_(next->Map.Iterator.value == Some("b"), ())
+  t->false_(next->Iterator.done, ())
+  t->true_(next->Iterator.value == Some("b"), ())
 
-  let next = iterator->Map.Iterator.next
+  let next = iterator->Iterator.next
 
-  t->true_(next->Map.Iterator.done, ())
-  t->true_(next->Map.Iterator.value == None, ())
+  t->true_(next->Iterator.done, ())
+  t->true_(next->Iterator.value == None, ())
 
-  let next = iterator->Map.Iterator.next
+  let next = iterator->Iterator.next
 
-  t->true_(next->Map.Iterator.done, ())
-  t->true_(next->Map.Iterator.value == None, ())
+  t->true_(next->Iterator.done, ())
+  t->true_(next->Iterator.value == None, ())
 })
 
 test("Map.values(map)", t => {
   let map = Map.fromEntries([("1", 1), ("2", 2)])
 
   let iterator = map->Map.values
-  let next = iterator->Map.Iterator.next
+  let next = iterator->Iterator.next
 
-  t->false_(next->Map.Iterator.done, ())
-  t->true_(next->Map.Iterator.value == Some(1), ())
+  t->false_(next->Iterator.done, ())
+  t->true_(next->Iterator.value == Some(1), ())
 
-  let next = iterator->Map.Iterator.next
+  let next = iterator->Iterator.next
 
-  t->false_(next->Map.Iterator.done, ())
-  t->true_(next->Map.Iterator.value == Some(2), ())
+  t->false_(next->Iterator.done, ())
+  t->true_(next->Iterator.value == Some(2), ())
 
-  let next = iterator->Map.Iterator.next
+  let next = iterator->Iterator.next
 
-  t->true_(next->Map.Iterator.done, ())
-  t->true_(next->Map.Iterator.value == None, ())
+  t->true_(next->Iterator.done, ())
+  t->true_(next->Iterator.value == None, ())
 
-  let next = iterator->Map.Iterator.next
+  let next = iterator->Iterator.next
 
-  t->true_(next->Map.Iterator.done, ())
-  t->true_(next->Map.Iterator.value == None, ())
+  t->true_(next->Iterator.done, ())
+  t->true_(next->Iterator.value == None, ())
 })
 
 test("Map.entries(map)", t => {
   let map = Map.fromEntries([("1", 1), ("2", 2)])
 
   let iterator = map->Map.entries
-  let next = iterator->Map.Iterator.next
+  let next = iterator->Iterator.next
 
-  t->false_(next->Map.Iterator.done, ())
-  t->true_(next->Map.Iterator.value == Some(("1", 1)), ())
+  t->false_(next->Iterator.done, ())
+  t->true_(next->Iterator.value == Some(("1", 1)), ())
 
-  let next = iterator->Map.Iterator.next
+  let next = iterator->Iterator.next
 
-  t->false_(next->Map.Iterator.done, ())
-  t->true_(next->Map.Iterator.value == Some(("2", 2)), ())
+  t->false_(next->Iterator.done, ())
+  t->true_(next->Iterator.value == Some(("2", 2)), ())
 
-  let next = iterator->Map.Iterator.next
+  let next = iterator->Iterator.next
 
-  t->true_(next->Map.Iterator.done, ())
-  t->true_(next->Map.Iterator.value == None, ())
+  t->true_(next->Iterator.done, ())
+  t->true_(next->Iterator.value == None, ())
 
-  let next = iterator->Map.Iterator.next
+  let next = iterator->Iterator.next
 
-  t->true_(next->Map.Iterator.done, ())
-  t->true_(next->Map.Iterator.value == None, ())
+  t->true_(next->Iterator.done, ())
+  t->true_(next->Iterator.value == None, ())
 })
 
 test("Map.forEach(map, fn)", t => {
