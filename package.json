@@ -1,5 +1,4 @@
 {
-
   "name": "rescript-js-map",
   "version": "1.0.0",
   "main": "index.js",
@@ -14,7 +13,9 @@
   "scripts": {
     "make": "yarn rescript build -with-deps",
     "dev": "yarn rescript -w",
-    "test": "ava",
-    "test:watch": "ava --watch"
+    "test": "ava"
+  },
+  "dependencies": {
+    "rescript-js-iterator": "^1.0.1"
   }
 }

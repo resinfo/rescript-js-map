@@ -13,6 +13,9 @@
     "module": "commonjs",
     "suffix": ".cjs"
   },
+  "bs-dependencies": [
+    "rescript-js-iterator"
+  ],
   "bs-dev-dependencies": [
     "rescript-ava"
   ]
