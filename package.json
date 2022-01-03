@@ -5,14 +5,21 @@
   "repository": "https://github.com/resinfo/rescript-js-map.git",
   "author": "Oliver Fencott <oliverfencott@gmail.com>",
   "license": "MIT",
+  "description": "ReScript bindings to the native JavaScript Map data type",
+  "files": [
+    "src/js_map.res",
+    "bsconfig.json"
+  ],
+  "keywords": [
+    "rescript", "bindings", "map"
+  ],
   "devDependencies": {
     "ava": "^3.15.0",
     "rescript": "^9.1.4",
     "rescript-ava": "^3.15.0"
   },
   "scripts": {
-    "make": "yarn rescript build -with-deps",
-    "dev": "yarn rescript -w",
+    "make": "rescript build -with-deps",
     "test": "ava"
   },
   "dependencies": {
