@@ -6,21 +6,21 @@ open Ava
 test("Map.make()", t => {
   let map = Map.make()
 
-  t->true_(map->Map.size == 0, ())
+  t->is(map->Map.size, 0, ())
 })
 
 test("Map.make(entries)", t => {
   let map = Map.fromEntries([("hello", "world")])
 
-  t->true_(map->Map.size == 1, ())
+  t->is(map->Map.size, 1, ())
 
   let map = Map.fromEntries([(12, ())])
 
-  t->true_(map->Map.size == 1, ())
+  t->is(map->Map.size, 1, ())
 
   let map = Map.fromEntries([(Js.null, Js.undefined)])
 
-  t->true_(map->Map.size == 1, ())
+  t->is(map->Map.size, 1, ())
 })
 
 test("Map.has(map, key)", t => {
@@ -33,10 +33,10 @@ test("Map.clear(map)", t => {
   let map = Map.fromEntries([("hello", "world")])
 
   t->true_(map->Map.has("hello"), ())
-  t->true_(map->Map.size == 1, ())
+  t->is(map->Map.size, 1, ())
   map->Map.clear
   t->false_(map->Map.has("hello"), ())
-  t->true_(map->Map.size == 0, ())
+  t->is(map->Map.size, 0, ())
 })
 
 test("Map.get(map, key)", t => {
@@ -61,25 +61,25 @@ test("Map.set(map, key, value)", t => {
   let map = Map.make()
 
   t->false_(map->Map.has("foo"), ())
-  t->true_(map->Map.size == 0, ())
+  t->is(map->Map.size, 0, ())
   t->true_(map->Map.get("foo") == None, ())
 
   map->Map.set("foo", "bar")->ignore
 
   t->true_(map->Map.has("foo"), ())
-  t->true_(map->Map.size == 1, ())
+  t->is(map->Map.size, 1, ())
   t->true_(map->Map.get("foo") == Some("bar"), ())
 
   let map = Map.make()
 
   t->false_(map->Map.has(42), ())
-  t->true_(map->Map.size == 0, ())
+  t->is(map->Map.size, 0, ())
   t->true_(map->Map.get(42) == None, ())
 
   map->Map.set(42, "bar")->ignore
 
   t->true_(map->Map.has(42), ())
-  t->true_(map->Map.size == 1, ())
+  t->is(map->Map.size, 1, ())
   t->true_(map->Map.get(42) == Some("bar"), ())
 
   let map = Map.make()
@@ -87,13 +87,13 @@ test("Map.set(map, key, value)", t => {
   let fnVal = rest => "12" ++ rest
 
   t->false_(map->Map.has(fnKey), ())
-  t->true_(map->Map.size == 0, ())
+  t->is(map->Map.size, 0, ())
   t->true_(map->Map.get(fnKey) == None, ())
 
   map->Map.set(fnKey, fnVal)->ignore
 
   t->true_(map->Map.has(fnKey), ())
-  t->true_(map->Map.size == 1, ())
+  t->is(map->Map.size, 1, ())
   /*
    * This is dangerous, the compiler throws if comparing functions.
    * We get away with it due to the Some() wrapper outputting an object
@@ -196,9 +196,9 @@ test("Map.forEach(map, fn)", t => {
     valueChain := valueChain.contents ++ value
   })
 
-  t->true_(size.contents == 3, ())
-  t->true_(keyChain.contents == "hellofoocheese", ())
-  t->true_(valueChain.contents == "worldbarburger", ())
+  t->is(size.contents, 3, ())
+  t->is(keyChain.contents, "hellofoocheese", ())
+  t->is(valueChain.contents, "worldbarburger", ())
 })
 
 test("Map.forEachWithMap(map, fn)", t => {
@@ -219,7 +219,7 @@ test("Map.forEachWithMap(map, fn)", t => {
     t->true_(map === this, ())
   })
 
-  t->true_(size.contents == 2, ())
-  t->true_(keyChain.contents == 22, ())
-  t->true_(valueChain.contents == "barburger", ())
+  t->is(size.contents, 2, ())
+  t->is(keyChain.contents, 22, ())
+  t->is(valueChain.contents, "barburger", ())
 })

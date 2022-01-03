@@ -7,7 +7,7 @@ var Caml_obj = require("rescript/lib/js/caml_obj.js");
 
 Ava.test("Map.make()", (function (t) {
         var map = new Map();
-        return Ava.true_(t, map.size === 0, undefined, undefined);
+        return Ava.is(t, map.size, 0, undefined, undefined);
       }));
 
 Ava.test("Map.make(entries)", (function (t) {
@@ -15,17 +15,17 @@ Ava.test("Map.make(entries)", (function (t) {
                 "hello",
                 "world"
               ]]);
-        Ava.true_(t, map.size === 1, undefined, undefined);
+        Ava.is(t, map.size, 1, undefined, undefined);
         var map$1 = new Map([[
                 12,
                 undefined
               ]]);
-        Ava.true_(t, map$1.size === 1, undefined, undefined);
+        Ava.is(t, map$1.size, 1, undefined, undefined);
         var map$2 = new Map([[
                 null,
                 undefined
               ]]);
-        return Ava.true_(t, map$2.size === 1, undefined, undefined);
+        return Ava.is(t, map$2.size, 1, undefined, undefined);
       }));
 
 Ava.test("Map.has(map, key)", (function (t) {
@@ -42,10 +42,10 @@ Ava.test("Map.clear(map)", (function (t) {
                 "world"
               ]]);
         Ava.true_(t, map.has("hello"), undefined, undefined);
-        Ava.true_(t, map.size === 1, undefined, undefined);
+        Ava.is(t, map.size, 1, undefined, undefined);
         map.clear();
         Ava.false_(t, map.has("hello"), undefined, undefined);
-        return Ava.true_(t, map.size === 0, undefined, undefined);
+        return Ava.is(t, map.size, 0, undefined, undefined);
       }));
 
 Ava.test("Map.get(map, key)", (function (t) {
@@ -71,19 +71,19 @@ Ava.test("Map.delete(map, key)", (function (t) {
 Ava.test("Map.set(map, key, value)", (function (t) {
         var map = new Map();
         Ava.false_(t, map.has("foo"), undefined, undefined);
-        Ava.true_(t, map.size === 0, undefined, undefined);
+        Ava.is(t, map.size, 0, undefined, undefined);
         Ava.true_(t, map.get("foo") === undefined, undefined, undefined);
         map.set("foo", "bar");
         Ava.true_(t, map.has("foo"), undefined, undefined);
-        Ava.true_(t, map.size === 1, undefined, undefined);
+        Ava.is(t, map.size, 1, undefined, undefined);
         Ava.true_(t, Caml_obj.caml_equal(map.get("foo"), "bar"), undefined, undefined);
         var map$1 = new Map();
         Ava.false_(t, map$1.has(42), undefined, undefined);
-        Ava.true_(t, map$1.size === 0, undefined, undefined);
+        Ava.is(t, map$1.size, 0, undefined, undefined);
         Ava.true_(t, map$1.get(42) === undefined, undefined, undefined);
         map$1.set(42, "bar");
         Ava.true_(t, map$1.has(42), undefined, undefined);
-        Ava.true_(t, map$1.size === 1, undefined, undefined);
+        Ava.is(t, map$1.size, 1, undefined, undefined);
         Ava.true_(t, Caml_obj.caml_equal(map$1.get(42), "bar"), undefined, undefined);
         var map$2 = new Map();
         var fnKey = function (param) {
@@ -93,11 +93,11 @@ Ava.test("Map.set(map, key, value)", (function (t) {
           return "12" + rest;
         };
         Ava.false_(t, map$2.has(fnKey), undefined, undefined);
-        Ava.true_(t, map$2.size === 0, undefined, undefined);
+        Ava.is(t, map$2.size, 0, undefined, undefined);
         Ava.true_(t, map$2.get(fnKey) === undefined, undefined, undefined);
         map$2.set(fnKey, fnVal);
         Ava.true_(t, map$2.has(fnKey), undefined, undefined);
-        Ava.true_(t, map$2.size === 1, undefined, undefined);
+        Ava.is(t, map$2.size, 1, undefined, undefined);
         Ava.true_(t, Caml_obj.caml_equal(map$2.get(fnKey), fnVal), undefined, undefined);
         var fn = map$2.get(fnKey);
         if (fn !== undefined) {
@@ -208,9 +208,9 @@ Ava.test("Map.forEach(map, fn)", (function (t) {
               valueChain.contents = valueChain.contents + value;
               
             });
-        Ava.true_(t, size.contents === 3, undefined, undefined);
-        Ava.true_(t, keyChain.contents === "hellofoocheese", undefined, undefined);
-        return Ava.true_(t, valueChain.contents === "worldbarburger", undefined, undefined);
+        Ava.is(t, size.contents, 3, undefined, undefined);
+        Ava.is(t, keyChain.contents, "hellofoocheese", undefined, undefined);
+        return Ava.is(t, valueChain.contents, "worldbarburger", undefined, undefined);
       }));
 
 Ava.test("Map.forEachWithMap(map, fn)", (function (t) {
@@ -231,9 +231,9 @@ Ava.test("Map.forEachWithMap(map, fn)", (function (t) {
               Ava.true_(t, Caml_obj.caml_equal(map, $$this), undefined, undefined);
               return Ava.true_(t, map === $$this, undefined, undefined);
             });
-        Ava.true_(t, size.contents === 2, undefined, undefined);
-        Ava.true_(t, keyChain.contents === 22, undefined, undefined);
-        return Ava.true_(t, valueChain.contents === "barburger", undefined, undefined);
+        Ava.is(t, size.contents, 2, undefined, undefined);
+        Ava.is(t, keyChain.contents, 22, undefined, undefined);
+        return Ava.is(t, valueChain.contents, "barburger", undefined, undefined);
       }));
 
 var Iterator;
