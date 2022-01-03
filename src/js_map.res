@@ -8,13 +8,13 @@ module Iterator = {
   type t<'value>
 
   @send
-  external next: (t<'value>, unit) => value<'value> = "next"
+  external next: t<'value> => value<'value> = "next"
 
   @get
-  external done: t<'value> => bool = "done"
+  external done: value<'value> => bool = "done"
 
   @get
-  external value: t<'value> => option<'value> = "value"
+  external value: value<'value> => option<'value> = "value"
 }
 
 type t<'key, 'value>
@@ -23,10 +23,10 @@ type t<'key, 'value>
  * Constructor
  */
 @ocaml.doc("Creates a new *Map* object.") @new
-external new: unit => t<'key, 'value> = "Map"
+external make: unit => t<'key, 'value> = "Map"
 
 @ocaml.doc("Creates a new *Map* object.") @new
-external newWithEntries: array<('key, 'value)> => t<'key, 'value> = "Map"
+external fromEntries: array<('key, 'value)> => t<'key, 'value> = "Map"
 
 /*
  * Instance properties
