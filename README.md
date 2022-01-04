@@ -11,11 +11,11 @@ yarn add rescript-js-map
 npm install --save rescript-js-map
 ```
 
-In your `bsconfig.json`, add:
+This package relies on the `rescript-js-iterator` package for `Iterator` bindings. In your `bsconfig.json`, add:
 
 ```json
 {
-  "bs-dependencies": ["rescript-js-map"]
+  "bs-dependencies": ["rescript-js-map", "rescript-js-iterator"]
 }
 ```
 
