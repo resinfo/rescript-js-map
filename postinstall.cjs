@@ -9,7 +9,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const configPath = path.join(process.cwd(), 'bsconfig.json');
+const cwd = process.cwd();
+const configPath = path.join(cwd, 'bsconfig.json');
 
 /**
  * @type [BsConfig | undefined, BsConfig | undefined]
@@ -17,7 +18,9 @@ const configPath = path.join(process.cwd(), 'bsconfig.json');
 const [myConfig, yourConfig] = (() => {
   try {
     return [
-      JSON.parse(fs.readFileSync('./bsconfig.json', 'utf-8')),
+      JSON.parse(
+        fs.readFileSync(path.join(cwd, '..', '..', 'bsconfig.json'), 'utf-8')
+      ),
       JSON.parse(fs.readFileSync(configPath, 'utf-8'))
     ];
   } catch (error) {
