@@ -8,8 +8,7 @@
   "description": "ReScript bindings to the native JavaScript Map data type",
   "files": [
     "src/js_map.res",
-    "bsconfig.json",
-    "postinstall.cjs"
+    "bsconfig.json"
   ],
   "keywords": [
     "rescript",
@@ -22,7 +21,6 @@
     "rescript-ava": "^3.15.0"
   },
   "scripts": {
-    "postinstall": "node postinstall.cjs",
     "make": "rescript build -with-deps",
     "test": "ava"
   },
