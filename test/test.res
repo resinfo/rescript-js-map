@@ -1,5 +1,5 @@
+module Iterator = Js_iterator
 module Map = Js_map
-module Iterator = Map.Iterator
 
 open Ava
 
