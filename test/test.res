@@ -64,8 +64,11 @@ test("Map.set(map, key, value)", t => {
   t->is(map->Map.size, 0, ())
   t->true_(map->Map.get("foo") == None, ())
 
-  map->Map.set("foo", "bar")->ignore
+  let prevMap = map
+  let map = map->Map.set("foo", "bar")
 
+  t->true_(prevMap == map, ())
+  t->true_(prevMap === map, ())
   t->true_(map->Map.has("foo"), ())
   t->is(map->Map.size, 1, ())
   t->true_(map->Map.get("foo") == Some("bar"), ())
@@ -187,18 +190,18 @@ test("Map.forEach(map, fn)", t => {
   }
 
   let size = ref(0)
-  let keyChain = ref("")
-  let valueChain = ref("")
+  let keys = ref("")
+  let values = ref("")
 
   map->Map.forEach((value, key) => {
     size := size.contents + 1
-    keyChain := keyChain.contents ++ key
-    valueChain := valueChain.contents ++ value
+    keys := keys.contents ++ key
+    values := values.contents ++ value
   })
 
   t->is(size.contents, 3, ())
-  t->is(keyChain.contents, "hellofoocheese", ())
-  t->is(valueChain.contents, "worldbarburger", ())
+  t->is(keys.contents, "hellofoocheese", ())
+  t->is(values.contents, "worldbarburger", ())
 })
 
 test("Map.forEachWithMap(map, fn)", t => {
@@ -207,19 +210,19 @@ test("Map.forEachWithMap(map, fn)", t => {
   }
 
   let size = ref(0)
-  let keyChain = ref(0)
-  let valueChain = ref("")
+  let keys = ref(0)
+  let values = ref("")
 
   map->Map.forEachWithMap((value, key, this) => {
     size := size.contents + 1
-    keyChain := keyChain.contents + key
-    valueChain := valueChain.contents ++ value
+    keys := keys.contents + key
+    values := values.contents ++ value
 
     t->true_(map == this, ())
     t->true_(map === this, ())
   })
 
   t->is(size.contents, 2, ())
-  t->is(keyChain.contents, 22, ())
-  t->is(valueChain.contents, "barburger", ())
+  t->is(keys.contents, 22, ())
+  t->is(values.contents, "barburger", ())
 })
