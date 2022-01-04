@@ -17,7 +17,7 @@ const configPath = path.join(process.cwd(), 'bsconfig.json');
 const [myConfig, yourConfig] = (() => {
   try {
     return [
-      JSON.parse(fs.readFileSync('bsconfig.json', 'utf-8')),
+      JSON.parse(fs.readFileSync('./bsconfig.json', 'utf-8')),
       JSON.parse(fs.readFileSync(configPath, 'utf-8'))
     ];
   } catch (error) {
