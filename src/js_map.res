@@ -1,3 +1,5 @@
+module Iterator = Js_iterator
+
 type t<'key, 'value>
 
 /*
@@ -46,19 +48,19 @@ external set: (t<'key, 'value>, 'key, 'value) => t<'key, 'value> = "set"
   "Returns a new `Iterator` object that contains the keys for each element in the `Map` object in insertion order."
 )
 @send
-external keys: t<'key, 'value> => Js_iterator.t<'key> = "keys"
+external keys: t<'key, 'value> => Iterator.t<'key> = "keys"
 
 @ocaml.doc(
   "Returns a new `Iterator` object that contains the values for each element in the `Map` object in insertion order."
 )
 @send
-external values: t<'key, 'value> => Js_iterator.t<'value> = "values"
+external values: t<'key, 'value> => Iterator.t<'value> = "values"
 
 @ocaml.doc(
   "Returns a new `Iterator` object that contains an array of [key, value] for each element in the `Map` object in insertion order."
 )
 @send
-external entries: t<'key, 'value> => Js_iterator.t<('key, 'value)> = "entries"
+external entries: t<'key, 'value> => Iterator.t<('key, 'value)> = "entries"
 
 @ocaml.doc(
   "Calls `callbackFn` once for each key-value pair present in the `Map` object, in insertion order."
