@@ -1489,10 +1489,10 @@ rescript-ava@^3.15.0:
   resolved "https://registry.yarnpkg.com/rescript-ava/-/rescript-ava-3.15.0.tgz#57cbde695c588d19d4be9ba93fe771c2831e2c5d"
   integrity sha512-2KKBEI3AiE+lYk18BRq+oBcAWFO8yWiRH+TgeTNe00lP9I7iIEe6VcFqstvVTJMq3UMMX9nkMD8KTngC6JurOQ==
 
-rescript-js-iterator@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/rescript-js-iterator/-/rescript-js-iterator-1.0.1.tgz#a65cb1c583e8e91a6ea5fa92ea49acef8b36d847"
-  integrity sha512-kLOoGmcNmacZRSutX3rPkBtUiJJtEt/WOwrhxXYJ7R7GPOrjaWo3BjGvz3MV1DMBMkD2BkXLbmDd7rjEB1764w==
+rescript-js-iterator@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/rescript-js-iterator/-/rescript-js-iterator-1.1.0.tgz#7fc1e6097cec5f3b847189e112deed0bca331f4d"
+  integrity sha512-9VSGfAUXdmOl0OoersJZknpGjCi4gsIuejcHQwIYKwoPPlfswFvrKjwOLTy4SoqM2037RxiwxsMPRlWgfDY22A==
 
 rescript@^9.1.4:
   version "9.1.4"

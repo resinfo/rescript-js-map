@@ -25,6 +25,6 @@
     "test": "ava"
   },
   "dependencies": {
-    "rescript-js-iterator": "^1.0.1"
+    "rescript-js-iterator": "^1.1.0"
   }
 }
